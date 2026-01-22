@@ -1,0 +1,5 @@
+{
+  "name": "Bear to DOCX",
+  "description": "Convert Bear markdown notes to perfectly styled DOCX files with glassmorphism UI.",
+  "requestFramePermissions": []
+}

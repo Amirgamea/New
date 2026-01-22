@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0f0f" />
+    
+    <!-- iOS PWA Config -->
+    <link rel="apple-touch-icon" href="/icon-180.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bear2DOCX">
+    
+    <title>Bear to DOCX Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Add any custom colors here if needed
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom Gradient Animation */
+      @keyframes gradient-xy {
+        0%, 100% {
+          background-size: 400% 400%;
+          background-position: 0% 0%;
+        }
+        50% {
+          background-size: 200% 200%;
+          background-position: 100% 100%;
+        }
+      }
+      .animate-gradient {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient-xy 15s ease infinite;
+      }
+      
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      
+      .dark .glass {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 20px;
+      }
+      .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,0.1);
+      }
+
+      /* Font Definitions */
+      @font-face {
+        font-family: 'BearSansUI';
+        src: url('/assets/fonts/BearSansUI-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'BearSansUI';
+        src: url('/assets/fonts/BearSansUI-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'BearSansUIHeading';
+        src: url('/assets/fonts/BearSansUIHeading-Regular.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'NotoSansSymbols2';
+        src: url('/assets/fonts/NotoSansSymbols2-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      body {
+        font-family: 'BearSansUI', 'NotoSansSymbols2', 'Cambria Math', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        /* Background and color handled by Tailwind classes in App root */
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "multer": "https://esm.sh/multer@^2.0.2",
+    "https": "https://esm.sh/https@^1.0.0",
+    "child_process": "https://esm.sh/child_process@^1.0.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "url": "https://esm.sh/url@^0.11.4",
+    "path": "https://esm.sh/path@^0.12.7",
+    "fs/": "https://esm.sh/fs@^0.0.1-security/",
+    "fs": "https://esm.sh/fs@^0.0.1-security",
+    "express": "https://esm.sh/express@^5.2.1",
+    "cors": "https://esm.sh/cors@^2.8.5",
+    "crypto": "https://esm.sh/crypto@^1.0.1",
+    "archiver": "https://esm.sh/archiver@^7.0.1",
+    "@twemoji/parser": "https://esm.sh/@twemoji/parser@^17.0.1",
+    "util": "https://esm.sh/util@^0.12.5",
+    "katex": "https://esm.sh/katex@^0.16.27",
+    "markdown-it": "https://esm.sh/markdown-it@^14.1.0",
+    "markdown-it-texmath": "https://esm.sh/markdown-it-texmath@^1.0.0",
+    "puppeteer-core": "https://esm.sh/puppeteer-core@^24.35.0",
+    "markdown-it-emoji": "https://esm.sh/markdown-it-emoji@^3.0.0",
+    "markdown-it-attrs": "https://esm.sh/markdown-it-attrs@^4.3.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

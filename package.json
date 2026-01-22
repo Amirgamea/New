@@ -1,0 +1,36 @@
+{
+  "name": "bear-to-docx",
+  "version": "2.0.0",
+  "description": "Convert Bear markdown notes to perfectly styled DOCX files",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node server.js",
+    "preview": "vite preview",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "cors": "^2.8.5",
+    "archiver": "^7.0.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-texmath": "^1.0.0",
+    "markdown-it-emoji": "^3.0.0",
+    "markdown-it-attrs": "^4.1.6",
+    "katex": "^0.16.10",
+    "puppeteer-core": "^22.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.0",
+    "nodemon": "^3.1.0"
+  }
+}
